@@ -1,0 +1,259 @@
+﻿
+@model Multi_Shop.Models.BaiViet
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="breadcome-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcome-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="icon nalika-home"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2>Danh mục bài viết</h2>
+                                    <p> <span class="bread-ntd">Đăng bài viết</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="breadcomb-report">
+                                <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="icon nalika-download"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Single pro tab start-->
+<div class="single-product-tab-area mg-b-30">
+    <!-- Single pro tab review Start-->
+    <div class="single-pro-review-area">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="review-tab-pro-inner">
+                        <ul id="myTab3" class="tab-review-design">
+                            <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Post Article</a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content custom-product-edit">
+                            <div class="product-tab-list tab-pane fade active in" id="description">
+                                @using (Html.BeginForm("Index", "PostArticle", FormMethod.Post, new {enctype="multipart/form-data"}))
+                                {
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                            <div class="review-content-section">
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
+                                                    @Html.TextBoxFor(x => x.tenBV, new { @class = "form-control", @placeholder = "Tên bài viết" })
+                                                </div>
+                                                <h3 style="color:#fff">Người Đăng</h3>
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
+                                                    @Html.TextBoxFor(x => x.taiKhoan, new { @class = "form-control", @style = "color:#000;", @disabled = "disabled" })
+                                                </div>
+
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
+                                                    @Html.TextAreaFor(x => x.ndTomTat, new { @class = "form-control", @style = "height:50%,width:100%;", @id = "nd", @placeholder = "Nội dung tóm tắt" })
+                                                </div>
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="icon nalika-favorites" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" placeholder="Số lượng bài viết">
+                                                </div>
+
+                                                <h3 style="color:#fff"> Ngày đăng</h3>
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
+                                                    @Html.TextBoxFor(x => x.ngayDang, new { @class = "form-control", @style = "color:#000;", @disabled = "disabled" })
+                                                </div>
+
+                                                <h2><i style="color:#fff;">Nội dung bài viết</i></h2>
+                                                <div class="form-group">
+                                                    @Html.TextAreaFor(x => x.noiDung, new { @class = "form-control", @placeholder = "Nội dung", @id = "ndBaiViet" })
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <img src="@ViewBag.ddHinh" style="margin-bottom:30px;" />
+                                        </div>
+
+                                        
+                                            <div>
+                                                <input name="hinhDD" type="file" id="file" multiple />
+                                            </div>
+                                            <div>
+                                                <button>Submit</button>
+                                            </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="text-center custom-pro-edt-ds">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-success">Thêm loại  mới</button>
+                                                </div>
+                                                <button type="button" class="btn btn-ctl-bt waves-effect waves-light">
+                                                    Discard
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
+<script src="https://cdn.tiny.cloud/1/gfoz3lncncx8voat2zjvszdnjp9hm4rxcfwicc2ip1alpm1y/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .container {
+        height: 60vh;
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        background-color: #1b2a47;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+        width: 600px;
+        height: 260px;
+        background-color: #ffffff;
+        padding: 10px 30px 40px;
+    }
+
+        .card h3 {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+    .drop_box {
+        margin: 10px 0;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        border: 3px dotted #a3a3a3;
+        border-radius: 5px;
+    }
+
+        .drop_box h4 {
+            font-size: 16px;
+            font-weight: 400;
+            color: #2e2e2e;
+        }
+
+        .drop_box p {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #a3a3a3;
+        }
+
+    .btn {
+        text-decoration: none;
+        background-color: #005af0;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        transition: 0.3s;
+    }
+
+        .btn:hover {
+            text-decoration: none;
+            background-color: #ffffff;
+            color: #005af0;
+            padding: 10px 20px;
+            border: none;
+            outline: 1px solid #010101;
+        }
+
+    .container .form input {
+        margin: 10px 0;
+        width: 100%;
+        background-color: #e2e2e2;
+        border: none;
+        outline: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+    }
+</style>
+
+<script>
+    tinymce.init({
+        selector: 'textarea#ndBaiViet',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+        ]
+    });
+</script>
+
+<script>
+    const dropArea = document.querySelector(".drop_box"),
+        button = dropArea.querySelector("button"),
+        dragText = dropArea.querySelector("header"),
+        input = dropArea.querySelector("input");
+    let file;
+    var filename;
+
+    button.onclick = () => {
+        input.click();
+    };
+
+    input.addEventListener("change", function (e) {
+        var fileName = e.target.files[0].name;
+        let filedata = `
+    <form action="" method="post">
+    <div class="form">
+    <h4>${fileName}</h4>
+    <input type="email" placeholder="Enter email upload file">
+    <button class="btn">Upload</button>
+    </div>
+    </form>`;
+        dropArea.innerHTML = filedata;
+    });
+
+</script>
+
+
+
+
+
+

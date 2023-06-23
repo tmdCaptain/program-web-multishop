@@ -1,0 +1,75 @@
+﻿@using Multi_Shop.Models
+@model Multi_Shop.Models.BaiViet
+@{
+    ViewBag.Title = "Index";
+    List<BaiViet> ds = ViewData["ListArticle"] as List<BaiViet>;
+}
+
+<div class="product-cart-area mg-b-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-cart-inner">
+                    <div id="example-basic">
+                        <section>
+                            <div class="product-list-cart">
+                                <div class="product-status-wrap border-pdt-ct">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Hình ảnh</th>
+                                                <th>Tên Bài viết</th>
+                                                <th>Tài khoản</th>
+                                                <th>Ngày đăng</th>
+                                                <th>Chỉnh sửa</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ foreach (BaiViet x in ds)
+                                                {
+                                                    <tr>
+                                                        <td style="width:100px;"><img class="img-fluid w-100" src="@x.hinhDD"></td>
+                                                        <td style="width:500px;" >
+                                                            <h3>@x.tenBV</h3>
+                                                        </td>
+                                                        <td>@x.taiKhoan</td>
+                                                        <td>@string.Format("{0: hh:mm [dd/MM]}", x.ngayDang)</td>
+                                                        <td>
+                                                            @using (Html.BeginForm("Delete", "ListArticle", FormMethod.Post))
+                                                            {
+                                                                <input type="hidden" name="maBaiViet" value="@x.maBV" />
+                                                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                            }
+
+                                                            @using (Html.BeginForm("Active", "ListArticle", FormMethod.Post))
+                                                            {
+                                                                <input type="hidden" name="maBaiViet" value="@x.maBV" />
+                                                                <button class="btn btn-success">@ViewBag.button</button>
+                                                            }
+                                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                                                
+                                                        </td>
+                                                    </tr>
+
+                                                }
+
+                                            }
+                                        </tbody>
+
+
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    form {
+        display: inline;
+    }
+</style>

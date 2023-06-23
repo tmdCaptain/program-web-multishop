@@ -1,0 +1,11 @@
+﻿@using Multi_Shop.Models
+@{
+
+    TaiKhoan x = (TaiKhoan)Session["TtDangNhap"];
+
+    if (x == null) {
+        Response.Redirect("~/login");
+    }
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+

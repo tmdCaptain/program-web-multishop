@@ -1,0 +1,289 @@
+﻿
+@using Multi_Shop.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid bg-dark mb-30">
+    <div class="row px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
+                <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Categories</h6>
+                <i class="fa fa-angle-down text-dark"></i>
+            </a>
+            <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
+                <div class="navbar-nav w-100">
+
+                    @{
+
+                        foreach (LoaiSP i in Common.getCategories())
+                        {
+
+                            <a href="#@i.maLoai" class="nav-item nav-link "
+                               id="@i.maLoai-tab" aria-controls="@i.maLoai" aria-selected="false">@i.tenLoai</a>
+                        }
+
+                    }
+                </div>
+            </nav>
+        </div>
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+                <a href='@Url.Action("Index","Home")' class="text-decoration-none d-block d-lg-none">
+                    <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
+                    <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href='@Url.Action("Index", "Home")' class="nav-item nav-link active">Home</a>
+                        <a href='@Url.Action("Index", "Shop")' class="nav-item nav-link">Shop</a>
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
+                            <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+                                <a href='@Url.Action("Index", "ShopingCart")' class="dropdown-item">Shopping Cart</a>
+                                <a href='@Url.Action("Index", "Checkout")' class="dropdown-item">Checkout</a>
+                            </div>
+                        </div>
+                        <a href='@Url.Action("Index", "Blog")' class="nav-item nav-link">Blog</a>
+                        <a href='@Url.Action("Index", "Contact")' class="nav-item nav-link">Contact</a>
+                        <a href='@Url.Action("Index", "Login")' class="nav-item nav-link">Login</a>
+                    </div>
+                    <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                        <a href='@Url.Action("Index", "Favorited")' class="btn px-0">
+                            <i class="fas fa-heart text-primary"></i>
+                        </a>
+                     </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mb-3">
+    <div class="row px-xl-5">
+        <div class="col-lg-8">
+            <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#header-carousel" data-slide-to="1"></li>
+                    <li data-target="#header-carousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item position-relative active" style="height: 430px;">
+                        <img class="position-absolute w-100 h-100" style="object-fit: cover;" src="~/Content/img/son-tung-bomber.jpg" />
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion</h1>
+                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
+                                    <i>
+                                        Thời trang nam – diện mạo trong thời điểm hiện tại luôn là yếu tố quyết định đến thành công của con người.
+                                        Một bộ quần áo giúp chúng ta có thể phán đoán phần nào tính cách của con người.
+                                    </i>
+                                </p>
+                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href='@Url.Action("Index","ProductSave")'>Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item position-relative" style="height: 430px;">
+                        <img class="position-absolute w-100 h-100" style="object-fit: cover;" src="~/Content/img/sominu.jpg" />
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+
+                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Women Fashion</h1>
+                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
+                                    <i>
+                                        Thời trang của phái nữ đã trải qua nhiều giai đoạn thăng trầm cùng lịch sử cùng
+                                        định kiến xã hội để khẳng định sức mạnh và vị trí của mình
+                                        thông qua những món trang phục mang tính cách mạng.
+                                    </i>
+                                </p>
+                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href='@Url.Action("Index","ProductSave")'>Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item position-relative" style="height: 430px;">
+                        <img class="position-absolute w-100 h-100" src="~/Content/img/carousel-3.jpg" style="object-fit: cover;">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kids Fashion</h1>
+                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
+                                    <i>
+                                        Đồ bộ trẻ em là trang phục không thể thiếu trong tủ quần áo cho bé.
+                                        Độ bộ trẻ em là bộ quần áo mặc ở nhà cho cả bé gái và bé trai, được may cùng một loại vải,
+                                        thường là vải thun cotton 100% với chất vải mềm mịn.
+                                    </i>
+                                </p>
+                                <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href='@Url.Action("Index","ProductSave")'>Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="product-offer mb-30" style="height: 200px;">
+                <img class="img-fluid" src="~/Content/img/offer-1.jpg" alt="">
+                <div class="offer-text">
+                    <h6 class="text-white text-uppercase">Save 20%</h6>
+                    <h3 class="text-white mb-3">Special Offer</h3>
+                    <a href='@Url.Action("Index","ProductSave")' class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+            <div class="product-offer mb-30" style="height: 200px;">
+                <img class="img-fluid" src="~/Content/img/offer-2.jpg" alt="">
+                <div class="offer-text">
+                    <h6 class="text-white text-uppercase">Save 20%</h6>
+                    <h3 class="text-white mb-3">Special Offer</h3>
+                    <a href='@Url.Action("Index","ProductSave")' class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Ve san pham -->
+
+
+
+
+@{
+
+    foreach (LoaiSP i in Common.getCategories())
+    {
+        <div class="container-fluid pt-5 pb-3 " id="@i.maLoai">
+            <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Sản Phẩm @i.tenLoai </span></h2>
+            <div class="row px-xl-5">
+
+                @{
+
+                    foreach (SanPham j in Common.getProductsByCategories(i.maLoai))
+                    {
+
+                        int x = (int)(j.giaBan - j.giamGia);
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                            <div class="product-item bg-light mb-4">
+                                <div class="product-img position-relative overflow-hidden">
+                                    <img class="img-fluid w-100 h-300" src="@j.hinhDD" alt="">
+                                    <div class="product-action">
+                                        @using (Html.BeginForm("AddToCart", "Home", FormMethod.Post))
+                                        {
+                                            <input name="maSP" type="hidden" value="@j.maSP" />
+                                            <a class="btn btn-outline-dark btn-square" href="">
+                                                <button style="border:none;" class="btn btn-outline-dark btn-square">
+
+                                                    <i class="fa fa-shopping-cart"></i>
+
+                                                </button>
+                                            </a>
+                                        }
+
+                                        @using (Html.BeginForm("AddToHeart", "Home", FormMethod.Post))
+                                        {
+                                            <input name="maSP" type="hidden" value="@j.maSP" />
+                                            <a class="btn btn-outline-dark btn-square" href="">
+                                                <button style="border:none;" class="btn btn-outline-dark btn-square">
+
+                                                    <i class="far fa-heart"></i>
+
+                                                </button>
+                                            </a>
+                                        }
+                                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                                        <a class="btn btn-outline-dark btn-square" href='@Url.Action("Index" , "ShopDetail", new {maSP=j.maSP})'><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                                <div class="text-center py-4">
+                                    <a style="width: 20px; white-space: break-spaces;" class="h6 text-decoration-none text-truncate" href='@Url.Action("Index" , "ShopDetail", new {maSP=j.maSP})'>@j.tenSP</a>
+
+                                    <div class="d-flex align-items-center justify-content-center mt-2">
+                                        <h5>@String.Format("{0:#,##0 đồng}", x)</h5><h6 class="text-muted ml-2"><del>@j.giaBan</del></h6>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-center mb-1">
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small>(99)</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+
+                }
+
+            </div>
+        </div>
+
+    }
+}
+<!--List the ngan hang mô hình-->
+
+<div class="container-fluid py-5">
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="owl-carousel vendor-carousel">
+                <div class="bg-light p-4">
+                    <img src="~/Content/img/vendor-1.jpg" alt="">
+                </div>
+                <div class="bg-light p-4">
+                    <img src="~/Content/img/vendor-2.jpg" alt="">
+                </div>
+                <div class="bg-light p-4">
+                    <img src="~/Content/img/vendor-3.jpg" alt="">
+                </div>
+                <div class="bg-light p-4">
+                    <img src="~/Content/img/vendor-4.jpg" alt="">
+                </div>
+                <div class="bg-light p-4">
+                    <img src="~/Content/img/vendor-5.jpg" alt="">
+                </div>
+                <div class="bg-light p-4">
+                    <img src="~/Content/img/vendor-6.jpg" alt="">
+                </div>
+                <div class="bg-light p-4">
+                    <img src="~/Content/img/vendor-7.jpg" alt="">
+                </div>
+                <div class="bg-light p-4">
+                    <img src="~/Content/img/vendor-8.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
